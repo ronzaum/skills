@@ -25,6 +25,17 @@ description: Analyse a call from its transcript, the user's private notes and th
    LLM, with the frames and quotes as evidence), only the cited frames, and
    the note copied into Obsidian with clickable tasks.
 
+## Requirements
+
+- **[Familiar](https://github.com/familiar-software/familiar)**, required
+  for the screen enrichment (timing, shared screen, notes). Without it the
+  skill still runs text-only; see Fallbacks.
+- **[Granola](https://www.granola.ai)** for the transcript and notes, via
+  its connector. Swappable: any provider that gives a start time and a
+  transcript works (see "Swapping the provider").
+- **[Obsidian](https://obsidian.md)**, optional. Without a vault the skill
+  skips the Obsidian step; the call folder is complete on its own.
+
 Skill files: `~/.claude/skills/call-analysis/` → `frame-reader.md` (the brief the image
 agents follow), `frames.py`, `timeline.py`,
 `obsidian_push.py`. Run scripts with `python3`. Keep every
@@ -46,8 +57,8 @@ No setup file is needed to start. The skill works out:
 - **the output folder** as `call-analysis/` under the current working folder.
 
 Two things cannot be guessed. On the first run, ask the user once for their
-Obsidian folder for call notes and, optionally, the code repo that
-dev-prompts should grep. Save both in `config.json` next to `SKILL.md`
+Obsidian folder for call notes (or that they have none: then skip step 10's
+push) and, optionally, the code repo that dev-prompts should grep. Save both in `config.json` next to `SKILL.md`
 (`vault_call_tasks_dir`, `code_repo`) and never ask again. The same file can
 override anything above (`familiar_root`, `output_root`, `tz_label`,
 `local_utc_offset_hours`, `stamp_utc_offset_hours`, `user_name`,
