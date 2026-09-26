@@ -1,6 +1,6 @@
 # Skills
 
-Skills for AI agents. Each folder is one skill.
+I'm Ron Zaum, Founding Solutions Architect at a YC startup, leading GTM, product, agent logic, systems thinking, customer success and deployments. I build agent skills for the work around all of that, and this repo holds the ones worth sharing. Each folder is one skill, with what it needs and how to install it.
 
 | Skill | Runs in | What it does |
 |---|---|---|
